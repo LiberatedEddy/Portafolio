@@ -1,0 +1,169 @@
+# ==========================================
+# PROYECTO — LIMPIEZA Y TRANSFORMACIÓN DE DATOS
+# ==========================================
+
+# ------------------------------------------
+# Paso 1 — Limpiar y reemplazar caracteres
+# ------------------------------------------
+
+usuario_nombre = ' mike_reed '
+
+# Eliminar espacios innecesarios
+usuario_nombre = usuario_nombre.strip()
+
+# Reemplazar "_" por espacio
+usuario_nombre = usuario_nombre.replace('_', ' ')
+
+print(usuario_nombre)
+
+# ------------------------------------------
+# Paso 2 — Separar nombre y apellido
+# ------------------------------------------
+
+usuario_sep = usuario_nombre.split()
+
+print(usuario_sep)
+
+# ------------------------------------------
+# Paso 3 — Conversión de tipos de datos
+# ------------------------------------------
+
+usuario_edad = '32.0'
+
+# Convertir string a float
+usuario_edad = float(usuario_edad)
+
+print(usuario_edad)
+
+# ------------------------------------------
+# Paso 4 — Manejo de errores
+# ------------------------------------------
+
+usuario_edad_error = 'treinta y dos'
+
+try:
+    usuario_edad_int = int(usuario_edad_error)
+    print(usuario_edad_int)
+
+except ValueError:
+    print('Proporcione su edad como un valor numérico.')
+
+# ------------------------------------------
+# Paso 5 — Lista de usuarios
+# ------------------------------------------
+
+usuarios = [
+    ['32415', ' mike_reed ', 32.0,
+     ['ELECTRÓNICA', 'DEPORTE', 'LIBROS'],
+     [894, 213, 173]],
+
+    ['31980', 'kate morgan', 24.0,
+     ['ROPA', 'LIBROS'],
+     [439, 390]],
+
+    ['32156', ' john doe ', 37.0,
+     ['ELECTRÓNICA', 'HOGAR', 'COMIDA'],
+     [459, 120, 99]],
+]
+
+# ------------------------------------------
+# Paso 6 — Ordenar usuarios por ID
+# ------------------------------------------
+
+usuarios.sort()
+
+print(usuarios)
+
+# ------------------------------------------
+# Paso 7 — Calcular gasto total
+# ------------------------------------------
+
+categorias_fav_low = ['electrónica', 'deporte', 'libros']
+gasto_por_categoria = [894, 213, 173]
+
+suma_total = sum(gasto_por_categoria)
+
+print(suma_total)
+
+# ------------------------------------------
+# Paso 8 — Crear resumen del usuario
+# ------------------------------------------
+
+usuario_id = '32415'
+usuario_nombre = ['mike', 'reed']
+usuario_edad = 32
+
+usuario_info = (
+    f'El usuario {usuario_id} es {usuario_nombre[0]}, '
+    f'quien tiene {usuario_edad} años.'
+)
+
+print(usuario_info)
+
+# ------------------------------------------
+# Paso 9 — Contar usuarios registrados
+# ------------------------------------------
+
+usuarios_info = f'Hemos registrado datos de {len(usuarios)} clientes.'
+
+print(usuarios_info)
+
+# ------------------------------------------
+# Paso 10 — Limpieza completa de usuarios
+# ------------------------------------------
+
+usuarios_limpio = []
+
+for usuario in usuarios:
+
+    # ID
+    usuario_id = usuario[0]
+
+    # Limpiar nombre
+    nombre = (
+        usuario[1]
+        .strip()
+        .replace('_', ' ')
+        .split()
+    )
+
+    # Convertir edad a entero
+    edad = int(usuario[2])
+
+    # Categorías favoritas
+    categorias = usuario[3]
+
+    # Gastos
+    gastos = usuario[4]
+
+    # Crear nuevo usuario limpio
+    usuario_limpio = [
+        usuario_id,
+        nombre,
+        edad,
+        categorias,
+        gastos
+    ]
+
+    # Agregar a lista final
+    usuarios_limpio.append(usuario_limpio)
+
+# Mostrar resultado final
+print(usuarios_limpio)
+
+# ------------------------------------------
+# Paso 11 — Mostrar resumen final
+# ------------------------------------------
+
+for usuario in usuarios_limpio:
+
+    total_gastado = sum(usuario[4])
+
+    print(
+        f'Cliente {usuario[1][0].title()} '
+        f'ha gastado un total de ${total_gastado}.'
+    )
+
+# ==========================================
+# FIN DEL PROYECTO
+# ==========================================
